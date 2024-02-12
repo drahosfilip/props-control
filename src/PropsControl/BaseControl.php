@@ -19,9 +19,9 @@ abstract class BaseControl extends Control
 	 */
 	private array $onCreateTemplate = [];
 
-	protected function createTemplate(): Template
+	protected function createTemplate(?string $class = null): Template
 	{
-		$template = parent::createTemplate();
+		$template = parent::createTemplate($class);
 		foreach ($this->onCreateTemplate as $callback) {
 			$callback($template);
 		}
